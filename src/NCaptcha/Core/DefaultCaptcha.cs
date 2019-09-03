@@ -37,7 +37,7 @@ namespace NCaptcha.Core
 
         public async ValueTask<bool> ValidateCaptchaAsync(string userInputCaptcha)
         {
-            var isValid = await _captchaCodeStorage.Validate(userInputCaptcha);
+            var isValid = await _captchaCodeStorage.ValidateAsync(userInputCaptcha);
 
             _logger.LogInformation("Captcha code validate {0}", isValid ? "success" : "failed");
 

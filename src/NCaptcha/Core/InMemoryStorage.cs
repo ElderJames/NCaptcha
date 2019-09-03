@@ -14,7 +14,7 @@ namespace NCaptcha.Core
             return new ValueTask<bool>(true);
         }
 
-        public ValueTask<bool> Validate(string captchaCode)
+        public ValueTask<bool> ValidateAsync(string captchaCode)
         {
             return new ValueTask<bool>(s_items.Remove(captchaCode));
         }

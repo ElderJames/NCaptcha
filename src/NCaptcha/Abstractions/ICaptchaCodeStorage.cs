@@ -6,6 +6,6 @@ namespace NCaptcha.Abstractions
     {
         ValueTask<bool> SaveAsync(string captchaCode);
 
-        ValueTask<bool> Validate(string captchaCode);
+        ValueTask<bool> ValidateAsync(string captchaCode);
     }
 }
