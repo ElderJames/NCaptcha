@@ -23,7 +23,7 @@ namespace NCaptcha.Core
 
         public async Task<CaptchaResult> GenerateCaptchaAsync()
         {
-            var captchaCode = await _captchaCodeGenerator.GenerateCaptchaCodeAsync();
+            string captchaCode = await _captchaCodeGenerator.GenerateCaptchaCodeAsync();
 
             _logger.LogInformation("NCaptcha generate a code: {0} .", captchaCode);
 
@@ -37,7 +37,7 @@ namespace NCaptcha.Core
 
         public async ValueTask<bool> ValidateCaptchaAsync(string userInputCaptcha)
         {
-            var isValid = await _captchaCodeStorage.ValidateAsync(userInputCaptcha);
+            bool isValid = await _captchaCodeStorage.ValidateAsync(userInputCaptcha);
 
             _logger.LogInformation("Captcha code validate {0}", isValid ? "success" : "failed");
 

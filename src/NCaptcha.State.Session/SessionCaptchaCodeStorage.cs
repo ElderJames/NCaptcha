@@ -33,14 +33,7 @@ namespace NCaptcha.State.Session
             if (string.IsNullOrEmpty(captcha))
                 return new ValueTask<bool>(false);
 
-            if (!_httpContextAccessor.HttpContext.Session.TryGetValue(SessionName, out byte[] bytes))
-                return new ValueTask<bool>(false);
-
-            string savedCaptcha = Encoding.UTF8.GetString(bytes);
-            if (string.IsNullOrEmpty(savedCaptcha))
-                return new ValueTask<bool>(false);
-
-            bool isValid = captcha.Equals(savedCaptcha, StringComparison.OrdinalIgnoreCase);
+            bool isValid = captcha.Equals(_httpContextAccessor.HttpContext.Session.GetString(SessionName), StringComparison.OrdinalIgnoreCase);
             _httpContextAccessor.HttpContext.Session.Remove(SessionName);
 
             return new ValueTask<bool>(isValid);

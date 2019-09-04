@@ -9,7 +9,7 @@ namespace NCaptcha.Extensions
     {
         public static INCaptchaBuilder UseBasicLetterCaptchaCode(this INCaptchaBuilder builder, string letters = "2346789ABCDEFGHJKLMNPRTUVWXYZ", int codeLength = 4)
         {
-            builder.Services.TryAddSingleton<ICaptchaCodeGenerator>(_ => new BasicLetterCodeGenerator(letters, codeLength));
+            builder.Services.TryAddSingleton<ICaptchaCodeGenerator>(new BasicLetterCodeGenerator(letters, codeLength));
             return builder;
         }
     }
