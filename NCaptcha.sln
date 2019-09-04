@@ -14,6 +14,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha", "src\NCaptcha\NC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.Targets.Images", "src\NCaptcha.Targets.Images\NCaptcha.Targets.Images.csproj", "{1BF55038-7D1D-4F2A-BE32-0A2375626B06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCaptcha.State.Session", "src\NCaptcha.State.Session\NCaptcha.State.Session.csproj", "{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{1BF55038-7D1D-4F2A-BE32-0A2375626B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BF55038-7D1D-4F2A-BE32-0A2375626B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BF55038-7D1D-4F2A-BE32-0A2375626B06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,6 +41,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8D478B0B-FDE0-438F-B1E2-2BAE03DEA7C7} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
 		{1BF55038-7D1D-4F2A-BE32-0A2375626B06} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
+		{CBF22573-6C80-4E1E-9C05-A7BA3143CF41} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93E7DC58-FF69-4F20-8428-187C7D780038}
