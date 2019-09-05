@@ -35,8 +35,9 @@ steps:
     patchVersion: '0'
 
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet push'
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: 'e8b802fd-521e-417f-982f-dacd1320f3cf'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'NugetConnection'
