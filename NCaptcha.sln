@@ -16,13 +16,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.Targets.Images", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.State.Session", "src\NCaptcha.State.Session\NCaptcha.State.Session.csproj", "{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCaptcha.AspNetCore", "src\NCaptcha.AspNetCore\NCaptcha.AspNetCore.csproj", "{B7B08416-38E0-4C54-BC91-DA94F700A160}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.AspNetCore", "src\NCaptcha.AspNetCore\NCaptcha.AspNetCore.csproj", "{B7B08416-38E0-4C54-BC91-DA94F700A160}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCaptcha.AspNetCore.SessionImages", "src\NCaptcha.AspNetCore.SessionImages\NCaptcha.AspNetCore.SessionImages.csproj", "{589E4F87-6775-4DDB-94C0-A2280084208B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.AspNetCore.SessionImages", "src\NCaptcha.AspNetCore.SessionImages\NCaptcha.AspNetCore.SessionImages.csproj", "{589E4F87-6775-4DDB-94C0-A2280084208B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{5570DC85-BBF2-4B85-8828-F3DB891FB1F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCaptcha.Samples.SessionImages", "samples\NCaptcha.Samples.SessionImages\NCaptcha.Samples.SessionImages.csproj", "{7A741DE5-9F8F-4DF9-9C33-EC9BC365B2E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.Samples.SessionImages", "samples\NCaptcha.Samples.SessionImages\NCaptcha.Samples.SessionImages.csproj", "{7A741DE5-9F8F-4DF9-9C33-EC9BC365B2E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +64,7 @@ Global
 		{CBF22573-6C80-4E1E-9C05-A7BA3143CF41} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
 		{B7B08416-38E0-4C54-BC91-DA94F700A160} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
 		{589E4F87-6775-4DDB-94C0-A2280084208B} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
+		{7A741DE5-9F8F-4DF9-9C33-EC9BC365B2E5} = {5570DC85-BBF2-4B85-8828-F3DB891FB1F7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93E7DC58-FF69-4F20-8428-187C7D780038}

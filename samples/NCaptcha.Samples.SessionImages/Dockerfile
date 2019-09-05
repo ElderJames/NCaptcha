@@ -19,6 +19,7 @@ COPY ["src/NCaptcha.AspNetCore.SessionImages/NCaptcha.AspNetCore.SessionImages.c
 COPY ["src/NCaptcha.Targets.Images/NCaptcha.Targets.Images.csproj", "src/NCaptcha.Targets.Images/"]
 COPY ["src/NCaptcha/NCaptcha.csproj", "src/NCaptcha/"]
 COPY ["src/NCaptcha.State.Session/NCaptcha.State.Session.csproj", "src/NCaptcha.State.Session/"]
+COPY ["src/NCaptcha.AspNetCore/NCaptcha.AspNetCore.csproj", "src/NCaptcha.AspNetCore/"]
 RUN dotnet restore "samples/NCaptcha.Samples.SessionImages/NCaptcha.Samples.SessionImages.csproj"
 COPY . .
 WORKDIR "/src/samples/NCaptcha.Samples.SessionImages"
