@@ -24,6 +24,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{5570
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.Samples.SessionImages", "samples\NCaptcha.Samples.SessionImages\NCaptcha.Samples.SessionImages.csproj", "{7A741DE5-9F8F-4DF9-9C33-EC9BC365B2E5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{F9EC6021-B13F-4FE7-8F67-BD9D6CA3DBDF}"
+	ProjectSection(SolutionItems) = preProject
+		build\common.props = build\common.props
+		build\version.props = build\version.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +71,7 @@ Global
 		{B7B08416-38E0-4C54-BC91-DA94F700A160} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
 		{589E4F87-6775-4DDB-94C0-A2280084208B} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
 		{7A741DE5-9F8F-4DF9-9C33-EC9BC365B2E5} = {5570DC85-BBF2-4B85-8828-F3DB891FB1F7}
+		{F9EC6021-B13F-4FE7-8F67-BD9D6CA3DBDF} = {05F7B813-0584-49DF-AA97-1040A304EBEC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93E7DC58-FF69-4F20-8428-187C7D780038}

@@ -1,0 +1,25 @@
+<Project>
+
+  <Import Project="version.props" />
+
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package">
+    <Product>NCaptcha</Product>
+    <Authors>James Yeung</Authors>
+    <RepositoryUrl>https://github.com/ElderJames/NCaptcha.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <!--<PackageIconUrl></PackageIconUrl>-->
+    <PackageProjectUrl>https://github.com/ElderJames/NCaptcha</PackageProjectUrl>
+    <PackageLicense>https://github.com/ElderJames/NCaptcha/blob/master/LICENSE</PackageLicense>
+    <PackageTags>NCaptcha;captcha</PackageTags>
+    <Description>Captcha in .NET Core</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
+  </ItemGroup>
+</Project>

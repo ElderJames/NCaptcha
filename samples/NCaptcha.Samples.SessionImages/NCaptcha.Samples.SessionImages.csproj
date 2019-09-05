@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\NCaptcha.AspNetCore.SessionImages\NCaptcha.AspNetCore.SessionImages.csproj" />
+    <ProjectReference Include="..\..\src\NCaptcha\NCaptcha.csproj" />
   </ItemGroup>
 
 </Project>

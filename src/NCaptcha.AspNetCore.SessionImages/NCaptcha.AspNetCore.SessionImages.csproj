@@ -1,5 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="../../build/common.props" />
+
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
@@ -10,5 +12,4 @@
     <ProjectReference Include="..\NCaptcha.Targets.Images\NCaptcha.Targets.Images.csproj" />
     <ProjectReference Include="..\NCaptcha\NCaptcha.csproj" />
   </ItemGroup>
-
 </Project>
