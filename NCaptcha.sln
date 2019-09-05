@@ -14,7 +14,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha", "src\NCaptcha\NC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.Targets.Images", "src\NCaptcha.Targets.Images\NCaptcha.Targets.Images.csproj", "{1BF55038-7D1D-4F2A-BE32-0A2375626B06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCaptcha.State.Session", "src\NCaptcha.State.Session\NCaptcha.State.Session.csproj", "{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.State.Session", "src\NCaptcha.State.Session\NCaptcha.State.Session.csproj", "{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCaptcha.AspNetCore", "src\NCaptcha.AspNetCore\NCaptcha.AspNetCore.csproj", "{B7B08416-38E0-4C54-BC91-DA94F700A160}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCaptcha.AspNetCore.SessionImages", "src\NCaptcha.AspNetCore.SessionImages\NCaptcha.AspNetCore.SessionImages.csproj", "{589E4F87-6775-4DDB-94C0-A2280084208B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{5570DC85-BBF2-4B85-8828-F3DB891FB1F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCaptcha.Samples.SessionImages", "samples\NCaptcha.Samples.SessionImages\NCaptcha.Samples.SessionImages.csproj", "{7A741DE5-9F8F-4DF9-9C33-EC9BC365B2E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +42,18 @@ Global
 		{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBF22573-6C80-4E1E-9C05-A7BA3143CF41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B08416-38E0-4C54-BC91-DA94F700A160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B08416-38E0-4C54-BC91-DA94F700A160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B08416-38E0-4C54-BC91-DA94F700A160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B08416-38E0-4C54-BC91-DA94F700A160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{589E4F87-6775-4DDB-94C0-A2280084208B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{589E4F87-6775-4DDB-94C0-A2280084208B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{589E4F87-6775-4DDB-94C0-A2280084208B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{589E4F87-6775-4DDB-94C0-A2280084208B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A741DE5-9F8F-4DF9-9C33-EC9BC365B2E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A741DE5-9F8F-4DF9-9C33-EC9BC365B2E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A741DE5-9F8F-4DF9-9C33-EC9BC365B2E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A741DE5-9F8F-4DF9-9C33-EC9BC365B2E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +62,8 @@ Global
 		{8D478B0B-FDE0-438F-B1E2-2BAE03DEA7C7} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
 		{1BF55038-7D1D-4F2A-BE32-0A2375626B06} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
 		{CBF22573-6C80-4E1E-9C05-A7BA3143CF41} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
+		{B7B08416-38E0-4C54-BC91-DA94F700A160} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
+		{589E4F87-6775-4DDB-94C0-A2280084208B} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93E7DC58-FF69-4F20-8428-187C7D780038}
