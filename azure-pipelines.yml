@@ -35,9 +35,11 @@ steps:
     patchVersion: '0'
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet push'
+  displayName: Push Nuget Package
   inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'NugetConnection'
+    command: custom
+    custom: nuget
+    arguments: >
+      push $(Build.ArtifactStagingDirectory)/*.nupkg
+      -s $(NuGetSourceServerUrl)
+      -k $(NuGetSourceServerApiKey)
