@@ -30,9 +30,9 @@ steps:
     includesymbols: true
     includesource: true
     versioningScheme: 'byPrereleaseNumber'
-    majorVersion: '1'
+    majorVersion: '0'
     minorVersion: '0'
-    patchVersion: '0'
+    patchVersion: '1'
 
 - task: DotNetCoreCLI@2
   displayName: Push Nuget Package
