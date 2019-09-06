@@ -17,13 +17,13 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet restore'
+  displayName: Restore
   inputs:
     command: 'restore'
     feedsToUse: 'select'
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet pack'
+  displayName: Pack
   inputs:
     command: 'pack'
     packagesToPack: '**/*.csproj'
