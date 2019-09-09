@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace NCaptcha.Samples.SessionEmail.Data
+namespace NCaptcha.Samples.AspNetCore.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

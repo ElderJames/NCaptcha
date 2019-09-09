@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <UserSecretsId>aspnet-NCaptcha.Samples.SessionEmail-B774D57B-B2FA-48F1-B631-AC26C6E4EA3C</UserSecretsId>
+    <UserSecretsId>aspnet-NCaptcha.Samples.AspNetCore-B774D57B-B2FA-48F1-B631-AC26C6E4EA3C</UserSecretsId>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
@@ -16,6 +16,4 @@
     <ProjectReference Include="..\..\src\NCaptcha.AspNetCore.SessionEmail\NCaptcha.AspNetCore.SessionEmail.csproj" />
     <ProjectReference Include="..\..\src\NCaptcha.AspNetCore.SessionImages\NCaptcha.AspNetCore.SessionImages.csproj" />
   </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

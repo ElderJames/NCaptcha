@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace NCaptcha.Samples.SessionEmail.Data.Migrations
+namespace NCaptcha.Samples.AspNetCore.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

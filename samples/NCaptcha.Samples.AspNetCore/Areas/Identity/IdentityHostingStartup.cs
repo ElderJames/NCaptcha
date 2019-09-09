@@ -1,14 +1,8 @@
-﻿using System;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using NCaptcha.Samples.SessionEmail.Data;
+﻿using Microsoft.AspNetCore.Hosting;
+using NCaptcha.Samples.AspNetCore.Areas.Identity;
 
-[assembly: HostingStartup(typeof(NCaptcha.Samples.SessionEmail.Areas.Identity.IdentityHostingStartup))]
-namespace NCaptcha.Samples.SessionEmail.Areas.Identity
+[assembly: HostingStartup(typeof(IdentityHostingStartup))]
+namespace NCaptcha.Samples.AspNetCore.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {
