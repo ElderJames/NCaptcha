@@ -27,7 +27,7 @@ namespace NCaptcha.AspNetCore.SessionImages
             byte[] bytes = await _captchaImageGenerator.GetImageAsync(captchaCode);
             await _captchaCodeStorage.SaveAsync(captchaCode);
 
-            return new CaptchaResult
+            return new FileCaptchaResult
             {
                 CaptchaCode = captchaCode,
                 CaptchaByteData = bytes,

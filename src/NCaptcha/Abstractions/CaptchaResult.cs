@@ -1,29 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace NCaptcha.Abstractions
 {
     public class CaptchaResult
     {
-        public CaptchaResult()
-        {
-        }
-
-        public CaptchaResult(CaptchaResult result)
-        {
-            Failed = result.Failed;
-            CaptchaCode = result.CaptchaCode;
-            CaptchaByteData = result.CaptchaByteData;
-            Timestamp = result.Timestamp;
-        }
+        private readonly Dictionary<string, object> _properties = new Dictionary<string, object>();
 
         public bool Failed { get; set; } = false;
 
         public string CaptchaCode { get; set; }
 
-        public byte[] CaptchaByteData { get; set; }
-
-        public string CaptchaBase64Data => CaptchaByteData == null ? string.Empty : Convert.ToBase64String(CaptchaByteData);
-
         public DateTime Timestamp { get; set; }
+
+        public object this[string key]
+        {
+            get { return _properties[key]; }
+            set { _properties[key] = value; }
+        }
     }
 }

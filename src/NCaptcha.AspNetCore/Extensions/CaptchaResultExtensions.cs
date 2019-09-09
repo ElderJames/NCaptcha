@@ -9,7 +9,9 @@ namespace NCaptcha.AspNetCore.Extensions
     {
         public static async Task<FileResult> GetCaptchaFileResultAsync(this ICaptcha captcha)
         {
-            CaptchaResult result = await captcha.GenerateCaptchaAsync();
+            if (!(await captcha.GenerateCaptchaAsync() is FileCaptchaResult result))
+                return null;
+
             return new FileContentResult(result.CaptchaByteData, MediaTypeNames.Image.Gif);
         }
     }
