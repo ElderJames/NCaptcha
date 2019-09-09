@@ -12,6 +12,8 @@
 
         public string ServerHost { get; set; }
 
-        public int ServerSslPort { get; set; }
+        public int ServerPort { get; set; }
+
+        public bool UseSsl { get; set; }
     }
 }

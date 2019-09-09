@@ -34,7 +34,7 @@ namespace NCaptcha.Targets.Email
                     mimeMessage.Subject = subject;
                     mimeMessage.Body = new TextPart(TextFormat.Html) { Text = body };
 
-                    await smtpClient.ConnectAsync(_emailCaptchaOptions.ServerHost, _emailCaptchaOptions.ServerSslPort, useSsl: true);
+                    await smtpClient.ConnectAsync(_emailCaptchaOptions.ServerHost, _emailCaptchaOptions.ServerPort, useSsl: _emailCaptchaOptions.UseSsl);
                     if (!string.IsNullOrEmpty(_emailCaptchaOptions.UserName) && !string.IsNullOrEmpty(_emailCaptchaOptions.Password))
                     {
                         await smtpClient.AuthenticateAsync(_emailCaptchaOptions.UserName, _emailCaptchaOptions.Password);

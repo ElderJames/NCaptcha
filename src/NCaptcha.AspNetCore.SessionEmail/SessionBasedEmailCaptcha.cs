@@ -40,7 +40,8 @@ namespace NCaptcha.AspNetCore.SessionEmail
             string emailTo = await _emailReceiverSelector.SelectAsync();
             if (string.IsNullOrEmpty(emailTo))
             {
-                return new CaptchaResult(result) { Failed = true };
+                result.Failed = true;
+                return result;
             }
 
             string subject = await _emailBodyGenerator.GenerateSubjectAsync(result);

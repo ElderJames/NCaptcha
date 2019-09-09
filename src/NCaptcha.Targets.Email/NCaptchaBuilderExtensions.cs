@@ -10,9 +10,6 @@ namespace NCaptcha.Targets.Email
     {
         public static INCaptchaBuilder UseEmailCaptcha(this INCaptchaBuilder builder, Action<EmailCaptchaOptions> optionAction)
         {
-            EmailCaptchaOptions options = new EmailCaptchaOptions();
-            optionAction(options);
-
             builder.Services.Configure(optionAction);
 
             builder.UseEmailCaptcha();
