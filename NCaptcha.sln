@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.AspNetCore.Session
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.Samples.AspNetCore", "samples\NCaptcha.Samples.AspNetCore\NCaptcha.Samples.AspNetCore.csproj", "{CD7EF3DD-B218-4B5C-B93B-6A404786552D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCaptcha.Samples.AspNetCore3.0", "samples\NCaptcha.Samples.AspNetCore3.0\NCaptcha.Samples.AspNetCore3.0.csproj", "{8AF752F6-70B8-445F-8FDC-AE7093C5AE62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{CD7EF3DD-B218-4B5C-B93B-6A404786552D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD7EF3DD-B218-4B5C-B93B-6A404786552D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD7EF3DD-B218-4B5C-B93B-6A404786552D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AF752F6-70B8-445F-8FDC-AE7093C5AE62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF752F6-70B8-445F-8FDC-AE7093C5AE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF752F6-70B8-445F-8FDC-AE7093C5AE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF752F6-70B8-445F-8FDC-AE7093C5AE62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +99,7 @@ Global
 		{D16405B2-B17E-44BC-B6CB-5BE3A22AFE81} = {FE67CB3B-FFD4-4883-BAEA-0CB9973F30F6}
 		{59E36ACA-6D31-4888-A45F-3AE69E1F1178} = {D16405B2-B17E-44BC-B6CB-5BE3A22AFE81}
 		{CD7EF3DD-B218-4B5C-B93B-6A404786552D} = {5570DC85-BBF2-4B85-8828-F3DB891FB1F7}
+		{8AF752F6-70B8-445F-8FDC-AE7093C5AE62} = {5570DC85-BBF2-4B85-8828-F3DB891FB1F7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93E7DC58-FF69-4F20-8428-187C7D780038}
