@@ -18,13 +18,15 @@ namespace NCaptcha.Samples.AspNetCore.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-        private readonly ICaptcha _captcha;
+        private readonly ICaptchaGenerator _captchaGenerator;
+        private readonly ICaptchaValidator _captchaValidator;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger, ICaptcha captcha)
+        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger, ICaptchaGenerator captchaGenerator, ICaptchaValidator captchaValidator)
         {
             _signInManager = signInManager;
             _logger = logger;
-            _captcha = captcha;
+            _captchaGenerator = captchaGenerator;
+            _captchaValidator = captchaValidator;
         }
 
         [BindProperty]
@@ -77,7 +79,7 @@ namespace NCaptcha.Samples.AspNetCore.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                if (!await _captcha.ValidateCaptchaAsync(Input.Captcha))
+                if (!await _captchaValidator.ValidateAsync(Input.Captcha))
                 {
                     ModelState.AddModelError(nameof(InputModel.Captcha), "Invalid captcha.");
                     return Page();
@@ -85,7 +87,7 @@ namespace NCaptcha.Samples.AspNetCore.Areas.Identity.Pages.Account
 
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+                Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
@@ -93,7 +95,7 @@ namespace NCaptcha.Samples.AspNetCore.Areas.Identity.Pages.Account
                 }
                 if (result.RequiresTwoFactor)
                 {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, Input.RememberMe });
                 }
                 if (result.IsLockedOut)
                 {
@@ -111,8 +113,8 @@ namespace NCaptcha.Samples.AspNetCore.Areas.Identity.Pages.Account
             return Page();
         }
 
-        public async Task OnPostSendCaptchaAsync(string email) => await _captcha.GenerateCaptchaAsync();
+        public async Task OnPostSendCaptchaAsync(string email) => await _captchaGenerator.GenerateCaptchaAsync();
 
-        public async Task<IActionResult> OnGetCaptchaAsync() => await _captcha.GetCaptchaFileResultAsync();
+        public async Task<IActionResult> OnGetCaptchaAsync() => await _captchaGenerator.GetCaptchaFileResultAsync();
     }
 }

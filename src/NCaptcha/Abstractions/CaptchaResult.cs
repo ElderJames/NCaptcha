@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NCaptcha.Abstractions
 {
@@ -12,6 +13,21 @@ namespace NCaptcha.Abstractions
         public string CaptchaCode { get; set; }
 
         public DateTime Timestamp { get; set; }
+
+        public Dictionary<string, object> Properties
+        {
+            get
+            {
+                Dictionary<string, object> prop = new Dictionary<string, object>
+                {
+                    { "Failed", Failed },
+                    { "CaptchaCode", CaptchaCode },
+                    { "Timestamp", Timestamp }
+                };
+
+                return prop.Concat(_properties).ToDictionary(x => x.Key, x => x.Value);
+            }
+        }
 
         public object this[string key]
         {

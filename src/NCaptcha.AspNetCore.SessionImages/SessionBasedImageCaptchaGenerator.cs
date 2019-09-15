@@ -5,13 +5,13 @@ using NCaptcha.Targets.Images;
 
 namespace NCaptcha.AspNetCore.SessionImages
 {
-    public class SessionBasedImageCaptcha : ICaptcha
+    public class SessionBasedImageCaptchaGenerator : ICaptchaGenerator
     {
         private readonly ICaptchaCodeGenerator _captchaGenerator;
         private readonly ICaptchaImageGenerator _captchaImageGenerator;
         private readonly ICaptchaCodeStorage _captchaCodeStorage;
 
-        public SessionBasedImageCaptcha(
+        public SessionBasedImageCaptchaGenerator(
             ICaptchaCodeGenerator captchaGenerator,
             ICaptchaImageGenerator captchaImageGenerator,
             ICaptchaCodeStorage captchaCodeStorage)
@@ -33,11 +33,6 @@ namespace NCaptcha.AspNetCore.SessionImages
                 CaptchaByteData = bytes,
                 Timestamp = DateTime.UtcNow
             };
-        }
-
-        public async ValueTask<bool> ValidateCaptchaAsync(string userInputCaptcha)
-        {
-            return await _captchaCodeStorage.ValidateAsync(userInputCaptcha);
         }
     }
 }

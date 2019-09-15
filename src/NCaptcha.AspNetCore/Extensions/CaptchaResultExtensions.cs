@@ -7,12 +7,20 @@ namespace NCaptcha.AspNetCore.Extensions
 {
     public static class CaptchaResultExtensions
     {
-        public static async Task<FileResult> GetCaptchaFileResultAsync(this ICaptcha captcha)
+        public static async Task<IActionResult> GetCaptchaFileResultAsync(this ICaptchaGenerator captcha)
         {
             if (!(await captcha.GenerateCaptchaAsync() is FileCaptchaResult result))
                 return null;
 
             return new FileContentResult(result.CaptchaByteData, MediaTypeNames.Image.Gif);
+        }
+
+        public static async Task<IActionResult> GetCaptchaJsonResultAsync(this ICaptchaGenerator captcha)
+        {
+            if (!(await captcha.GenerateCaptchaAsync() is CaptchaResult result))
+                return null;
+
+            return new OkObjectResult(result.Properties);
         }
     }
 }

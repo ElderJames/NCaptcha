@@ -2,10 +2,8 @@
 
 namespace NCaptcha.Abstractions
 {
-    public interface ICaptcha
+    public interface ICaptchaGenerator
     {
         Task<CaptchaResult> GenerateCaptchaAsync();
-
-        ValueTask<bool> ValidateCaptchaAsync(string userInputCaptcha);
     }
 }

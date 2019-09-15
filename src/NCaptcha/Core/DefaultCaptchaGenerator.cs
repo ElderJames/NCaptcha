@@ -5,16 +5,16 @@ using NCaptcha.Abstractions;
 
 namespace NCaptcha.Core
 {
-    public class DefaultCaptcha : ICaptcha
+    public class DefaultCaptchaGenerator : ICaptchaGenerator
     {
         private readonly ICaptchaCodeGenerator _captchaCodeGenerator;
         private readonly ICaptchaCodeStorage _captchaCodeStorage;
-        private readonly ILogger<DefaultCaptcha> _logger;
+        private readonly ILogger _logger;
 
-        public DefaultCaptcha(
+        public DefaultCaptchaGenerator(
             ICaptchaCodeGenerator captchaCodeGenerator,
             ICaptchaCodeStorage captchaCodeStorage,
-            ILogger<DefaultCaptcha> logger)
+            ILogger<DefaultCaptchaGenerator> logger)
         {
             _captchaCodeGenerator = captchaCodeGenerator;
             _captchaCodeStorage = captchaCodeStorage;
@@ -33,15 +33,6 @@ namespace NCaptcha.Core
                 CaptchaCode = captchaCode,
                 Timestamp = DateTime.UtcNow
             };
-        }
-
-        public async ValueTask<bool> ValidateCaptchaAsync(string userInputCaptcha)
-        {
-            bool isValid = await _captchaCodeStorage.ValidateAsync(userInputCaptcha);
-
-            _logger.LogInformation("Captcha code validate {0}", isValid ? "success" : "failed");
-
-            return isValid;
         }
     }
 }

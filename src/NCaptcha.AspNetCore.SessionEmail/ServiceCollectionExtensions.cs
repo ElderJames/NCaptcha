@@ -12,7 +12,7 @@ namespace NCaptcha.AspNetCore.SessionEmail
     {
         public static IServiceCollection AddSessionBasedEmailCaptcha(this IServiceCollection services, Action<EmailCaptchaOptions> optionAction, string letters = "2346789ABCDEFGHJKLMNPRTUVWXYZ", int codeLength = 4)
         {
-            services.AddNCaptcha<SessionBasedEmailCaptcha>(builder =>
+            services.AddNCaptcha<SessionBasedEmailCaptchaGenerator>(builder =>
             {
                 builder.UseBasicLetterCaptchaCode(letters, codeLength)
                     .UseEmailCaptcha(optionAction)

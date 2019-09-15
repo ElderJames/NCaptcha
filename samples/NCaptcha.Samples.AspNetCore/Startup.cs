@@ -51,7 +51,7 @@ namespace NCaptcha.Samples.AspNetCore
                     break;
 
                 case "SessionEmail":
-                    services.AddSessionBasedEmailCaptcha(opt => Configuration.GetSection("CaptchaEmail").Bind(opt));
+                    services.AddSessionBasedEmailCaptcha(Configuration.GetSection("CaptchaEmail").Bind);
                     break;
             }
 

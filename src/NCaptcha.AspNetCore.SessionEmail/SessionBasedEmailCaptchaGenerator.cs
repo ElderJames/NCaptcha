@@ -5,7 +5,7 @@ using NCaptcha.Targets.Email.Abstractions;
 
 namespace NCaptcha.AspNetCore.SessionEmail
 {
-    public class SessionBasedEmailCaptcha : ICaptcha
+    public class SessionBasedEmailCaptchaGenerator : ICaptchaGenerator
     {
         private readonly ICaptchaCodeGenerator _captchaGenerator;
         private readonly IEmailReceiverSelector _emailReceiverSelector;
@@ -13,7 +13,7 @@ namespace NCaptcha.AspNetCore.SessionEmail
         private readonly IEmailBodyGenerator _emailBodyGenerator;
         private readonly ICaptchaCodeStorage _captchaCodeStorage;
 
-        public SessionBasedEmailCaptcha(
+        public SessionBasedEmailCaptchaGenerator(
             ICaptchaCodeGenerator captchaGenerator,
             ICaptchaCodeStorage captchaCodeStorage,
             IEmailSender emailSender,
@@ -50,11 +50,6 @@ namespace NCaptcha.AspNetCore.SessionEmail
             await _captchaCodeStorage.SaveAsync(captchaCode);
 
             return result;
-        }
-
-        public async ValueTask<bool> ValidateCaptchaAsync(string userInputCaptcha)
-        {
-            return await _captchaCodeStorage.ValidateAsync(userInputCaptcha);
         }
     }
 }
