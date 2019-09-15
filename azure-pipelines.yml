@@ -19,6 +19,9 @@ steps:
     version: '3.0.100-preview9-014004'
     includePreviewVersions: true
 
+- script: dotnet build --configuration $(buildConfiguration) /p:TreatWarningsAsErrors=true /warnaserror
+  displayName: 'dotnet build $(buildConfiguration)'
+
 - task: DotNetCoreCLI@2
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   displayName: Restore
