@@ -1,22 +1,22 @@
 <p align="right">
-  <span>English</span> |  
-  <a href="./README_CN.md">中文</a>
+  <a href="./README.md">English</a> |  
+  <span>中文</a>
 </p>
 <h1 align="center">NCaptcha
-    <sup style="font-size:10px;">Captcha in .NET Core</sup>
+    <sup style="font-size:10px;">.NET Core 验证码组件库</sup>
 </h1>
 
 [![Build Status](https://dev.azure.com/elderjames/NCaptcha-Pipelines/_apis/build/status/ElderJames.NCaptcha?branchName=master)](https://dev.azure.com/elderjames/NCaptcha-Pipelines/_build/latest?definitionId=1&branchName=master)
 
-## What is NCaptcha?
+## 什么是 NCaptcha?
 
-NCaptcha is the componentized captcha integration scheme in .NET Core that base on .NET Standard 2.0 and easy to expand.
-It can help you implement security mechanism based on captcha with many out-of-the-box solutions or integrate your own implementation very easily.Because its implementation is componentized that allows you to easily implement what needs to be modified or replaced.
+NCaptcha 是面向 .NET Core 的组件化的验证码集成方案，基于.NET Standard 2.0，并且非常易于扩展。
 
-Components in NCaptcha are divided into "Generator","Validator","Target" and "State".
-So far, session-based images, emails, and SMS solutions have been implement.
+它通过许多开箱即用的解决方案帮助您实现基于验证码的安全机制，也可以让您非常方便地集成您自己的实现。因为它的实现是组件化的，允许您方便地实现需要修改或替换的部分。
 
-## Nuget Packages
+NCaptcha 中的组件分为“生成器”、“验证器”、“目标实现” 和“状态维持”四部分。目前为止，已经实现了基于 Session 的图片、邮件和短信方案。
+
+## Nuget 包
 
 | Package                                                                                                | NuGet Stable                                                                                                                                                                    | Downloads                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -31,14 +31,14 @@ So far, session-based images, emails, and SMS solutions have been implement.
 | [NCaptcha.AspNetCore.SessionEmail](https://www.nuget.org/packages/NCaptcha.AspNetCore.SessionEmail/)   | [![NCaptcha.AspNetCore.SessionEmail](https://img.shields.io/nuget/v/NCaptcha.AspNetCore.SessionEmail.svg)](https://www.nuget.org/packages/NCaptcha.AspNetCore.SessionEmail/)    | [![NCaptcha.AspNetCore.SessionEmail](https://img.shields.io/nuget/dt/NCaptcha.AspNetCore.SessionEmail.svg)](https://www.nuget.org/packages/NCaptcha.AspNetCore.SessionEmail/)    |
 | [NCaptcha.AspNetCore.SessionSms](https://www.nuget.org/packages/NCaptcha.AspNetCore.SessionSms/)       | [![NCaptcha.AspNetCore.SessionSms](https://img.shields.io/nuget/v/NCaptcha.AspNetCore.SessionSms.svg)](https://www.nuget.org/packages/NCaptcha.AspNetCore.SessionSms/)          | [![NCaptcha.AspNetCore.SessionSms](https://img.shields.io/nuget/dt/NCaptcha.AspNetCore.SessionSms.svg)](https://www.nuget.org/packages/NCaptcha.AspNetCore.SessionSms/)          |
 
-## Usage
+## 使用方法
 
-### Use out-of-the-box solutions
+### 使用开箱即用方案
 
--   [Images captcha base on session](./docs/en/session-image.md)
--   [Email captcha base on session](./docs/en/session-email.md)
--   [Sms captcha base on session](./docs/en/session-sms.md),
+-   [基于 Session 的图片验证码](./docs/cn/session-image.md)
+-   [基于 Session 的邮件验证码](./docs/cn/session-email.md)
+-   [基于 Session 的短信验证码](./docs/cn/session-sms.md)
 
-    At present, the following SMS service providers have been implemented:
+    目前已实现以下短信服务商：
 
-    -   aliyun
+    -   阿里云
