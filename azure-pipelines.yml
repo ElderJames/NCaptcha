@@ -45,7 +45,7 @@ stages:
         arguments: '--configuration $(buildConfiguration)'
 
     - script: >
-        dotnet pack **/*.csproj 
+        dotnet pack
         -c $(buildConfiguration) /p:PackageVersion=$(major).$(minor).$(patch) 
         -o $(Build.ArtifactStagingDirectory)/packages/releases 
         --no-build 
@@ -56,7 +56,7 @@ stages:
       displayName: 'Create NuGet Package - Release Version'
 
     - script: >
-        dotnet pack **/*.csproj 
+        dotnet pack
         -c $(buildConfiguration) /p:PackageVersion=$(major).$(minor).$(patch)-preview-$(Build.BuildNumber)
         -o $(Build.ArtifactStagingDirectory)/packages/prereleases 
         --no-build 
