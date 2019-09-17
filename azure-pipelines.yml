@@ -6,43 +6,115 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+stages:
 
-variables:
-  buildConfiguration: 'Release'
+- stage: 'Build'
+  variables:
+    buildConfiguration: 'Release'
+    major: 0
+    minor: 1
+    patch: 0
 
-steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-latest'
 
-- task: DotNetCoreCLI@2
+    workspace:
+      clean: all
+
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core sdk'
+      inputs:
+        packageType: sdk
+        version: 2.2.x
+        installationPath: $(Agent.ToolsDirectory)/dotnet
+    
+    - task: DotNetCoreCLI@2
+      displayName: "NuGet Restore"
+      inputs:
+        command: restore
+        projects: '**/*.csproj'
+
+    - task: DotNetCoreCLI@2
+      displayName: "Build Solution"
+      inputs:
+        command: build
+        projects: '**/*.csproj'
+        arguments: '--configuration $(buildConfiguration)'
+
+    - script: >
+        dotnet pack **/*.csproj 
+        -c $(buildConfiguration) /p:PackageVersion=$(major).$(minor).$(patch) 
+        -o $(Build.ArtifactStagingDirectory)/packages/releases 
+        --no-build 
+        --no-restore
+        --include-source
+        -Symbols
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/release'))
+      displayName: 'Create NuGet Package - Release Version'
+
+    - script: >
+        dotnet pack **/*.csproj 
+        -c $(buildConfiguration) /p:PackageVersion=$(major).$(minor).$(patch)-preview-$(Build.BuildNumber)
+        -o $(Build.ArtifactStagingDirectory)/packages/prereleases 
+        --no-build 
+        --no-restore
+        --include-source
+        -Symbols
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+      displayName: 'Create NuGet Package - Prerelease Version'
+        
+    - publish: '$(Build.ArtifactStagingDirectory)/packages'
+      artifact: 'packages'
+
+- stage: 'PublishPrereleaseNuGetPackage'
+  displayName: 'Publish Prerelease NuGet Package'
+  dependsOn: 'Build'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-  displayName: Restore
-  inputs:
-    command: 'restore'
-    feedsToUse: 'select'
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-latest'
 
-- task: DotNetCoreCLI@2
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-  displayName: Pack
-  inputs:
-    command: 'pack'
-    packagesToPack: '**/*.csproj'
-    includesymbols: true
-    includesource: true
-    versioningScheme: 'byPrereleaseNumber'
-    majorVersion: '0'
-    minorVersion: '0'
-    patchVersion: '1'
+    steps:
+    - checkout: none
 
-- task: DotNetCoreCLI@2
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-  displayName: Push Nuget Package
-  inputs:
-    command: custom
-    custom: nuget
-    arguments: >
-      push $(Build.ArtifactStagingDirectory)/*.nupkg
-      -s $(NuGetSourceServerUrl)
-      -k $(NuGetSourceServerApiKey)
+    - download: current
+      artifact: 'packages'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Push NuGet Package'
+      inputs:
+        command: custom
+        custom: nuget
+        arguments: >
+          push $(Pipeline.Workspace)/packages/prereleases/*.nupkg
+          -s $(NuGetSourceServerUrl)
+          -k $(NuGetSourceServerApiKey)
+
+- stage: 'PublishReleaseNuGetPackage'
+  displayName: 'Publish Release NuGet Package'
+  dependsOn: 'Build'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/release'))
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - checkout: none
+
+    - download: current
+      artifact: 'packages'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Push NuGet Package'
+      inputs:
+        command: custom
+        custom: nuget
+        arguments: >
+          push $(Pipeline.Workspace)/packages/releases/*.nupkg
+          -s $(NuGetSourceServerUrl)
+          -k $(NuGetSourceServerApiKey)
