@@ -51,7 +51,7 @@ stages:
         --no-build 
         --no-restore
         --include-source
-        -Symbols
+        --include-symbols
       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/release'))
       displayName: 'Create NuGet Package - Release Version'
 
@@ -62,7 +62,7 @@ stages:
         --no-build 
         --no-restore
         --include-source
-        -Symbols
+        --include-symbols
       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
       displayName: 'Create NuGet Package - Prerelease Version'
         
