@@ -1,6 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="../../build/common.props" />
+  <Import Project="../../build/common.props"></Import>
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,6 +10,6 @@
     <ProjectReference Include="..\NCaptcha.AspNetCore\NCaptcha.AspNetCore.csproj" />
     <ProjectReference Include="..\NCaptcha.State.Session\NCaptcha.State.Session.csproj" />
     <ProjectReference Include="..\NCaptcha.Targets.Images\NCaptcha.Targets.Images.csproj" />
-    <ProjectReference Include="..\NCaptcha\NCaptcha.csproj" />
+    
   </ItemGroup>
 </Project>
